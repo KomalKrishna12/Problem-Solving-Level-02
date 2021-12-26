@@ -18,6 +18,11 @@ public class Q3_Preorder_Morris_traversal_in_binary_tree {
   }
 
   public static ArrayList<Integer> morrisPreTraversal(TreeNode node) {
+      // when leftnode is null print the curr.val and set curr to its right
+      // else find right most node(rms)
+      // if rms.right == null then create a thred so connect rms.right to curr and set curr to its left
+      // else cutt down the thread set curr to its right
+      // whenever we create the thread add the curr.val in list
       ArrayList<Integer> ans = new ArrayList<>();
       TreeNode curr = node;
       while(curr != null){
