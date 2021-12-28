@@ -53,9 +53,20 @@ public class Q5_House_Robber_in_Binary_Tree {
     // }
 
     // second approach
+    // we create an array of size 2 index 0 contain var withrobbery and index 1 contain withoutrobbery
     
+    public static int[] HouseRobber_(TreeNode root) {
+        if(root == null) return new int[2];
+        int[] left = HouseRobber_(root.left);
+        int[] right = HouseRobber_(root.right);
+        int[] myans = new int[2];
+        myans[0] = root.val + left[1] + right[1];
+        myans[1] = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);
+        return myans;
+    }
     public static int HouseRobber(TreeNode root) {
-        return 0;
+        int[] res = HouseRobber_(root);
+        return Math.max(res[0], res[1]);
     }
 
     // input_Section_====================================================================
