@@ -48,27 +48,19 @@ public class Q6_Longest_zig_zag_path_in_binary_tree {
     // now this is the second approach
     // first one is more readable but second one is easy and fast
     
+    static int maxlen = 0;
     public static int[] longestZigZagPath_(TreeNode root) {
-        if(root == null){
-            int[] arr = new int[3];
-            arr[0] = arr[1] = -1;
-            arr[2] = 0;
-            return arr;
-        }
-
+        if(root == null) return new int[]{-1, -1};
         int[] left = longestZigZagPath_(root.left);
         int[] right = longestZigZagPath_(root.right);
 
-        int[] res = new int[3];
-        res[2] = Math.max(Math.max(left[2], right[2]), Math.max(left[1], right[0]) + 1);
-        res[1] = right[0] + 1;
-        res[0] = left[1] + 1;
-        return res;
+        maxlen = Math.max(maxlen, Math.max(left[1], right[0]) + 1);
+        return new int[]{left[1] + 1, right[0] + 1};
     }
 
     public static int longestZigZagPath(TreeNode root) {
-        int[] res = longestZigZagPath_(root);
-        return res[2];
+        longestZigZagPath_(root);
+        return maxlen;
     }
 
     // input_Section_====================================================================
