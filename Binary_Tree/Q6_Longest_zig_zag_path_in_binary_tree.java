@@ -47,6 +47,11 @@ public class Q6_Longest_zig_zag_path_in_binary_tree {
 
     // now this is the second approach
     // first one is more readable but second one is easy and fast
+    // we creates a static variable maxlen intialize as 0
+    // now create a function which returns an array having 2 elements at 0 forwardslop and 1 backwardslop
+    // maxlen will be max of maxlen or left[1] or right[0] + 1
+    // menas if prev max len is greater then that will be continue else it may after adding current val
+    // for forward left of backward or right of forward 
     
     static int maxlen = 0;
     public static int[] longestZigZagPath_(TreeNode root) {
