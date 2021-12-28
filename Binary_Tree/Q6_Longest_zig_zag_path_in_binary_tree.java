@@ -12,10 +12,21 @@ public class Q6_Longest_zig_zag_path_in_binary_tree {
         }
     }
 
+    // this is first approach
+    // we create a pair class which contain 3 variables forwslop, backwardslop and maxlen
+    // by default forwslop and backwardslop will be -1 bcoz we're counting path
+    // assume forwslop for left child
+    // backslop for right child 
     static class Pair{
         int forwardslop = -1, backwardslop = -1, maxlen = 0;
     }
 
+    // if root is null simply create a object of Pair class and return it
+    // left and right contain all three variables
+    // create myans object
+    // myans.maxlen contain max of left.maxlen or right.mexlen or max of left.backslop and right.forwslo + 1
+    // myans.forwslop = left.backslop + 1
+    // myslop.backslop = right.forwslop + 1
     public static Pair longestZigZagPath_(TreeNode root) {
         if(root == null) return new Pair();
         
