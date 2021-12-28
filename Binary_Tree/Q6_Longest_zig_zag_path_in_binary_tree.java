@@ -27,22 +27,48 @@ public class Q6_Longest_zig_zag_path_in_binary_tree {
     // myans.maxlen contain max of left.maxlen or right.mexlen or max of left.backslop and right.forwslo + 1
     // myans.forwslop = left.backslop + 1
     // myslop.backslop = right.forwslop + 1
-    public static Pair longestZigZagPath_(TreeNode root) {
-        if(root == null) return new Pair();
+    // public static Pair longestZigZagPath_(TreeNode root) {
+    //     if(root == null) return new Pair();
         
-        Pair left = longestZigZagPath_(root.left);
-        Pair right = longestZigZagPath_(root.right);
-        Pair myans = new Pair();
-        myans.maxlen = Math.max(Math.max(left.maxlen, right.maxlen), 
-                       Math.max(left.backwardslop, right.forwardslop) + 1);
-        myans.forwardslop = left.backwardslop + 1;
-        myans.backwardslop = right.forwardslop + 1;
-        return myans;
+    //     Pair left = longestZigZagPath_(root.left);
+    //     Pair right = longestZigZagPath_(root.right);
+    //     Pair myans = new Pair();
+    //     myans.maxlen = Math.max(Math.max(left.maxlen, right.maxlen), 
+    //                    Math.max(left.backwardslop, right.forwardslop) + 1);
+    //     myans.forwardslop = left.backwardslop + 1;
+    //     myans.backwardslop = right.forwardslop + 1;
+    //     return myans;
+    // }
+
+    // public static int longestZigZagPath(TreeNode root) {
+    //     Pair res = longestZigZagPath_(root);
+    //     return res.maxlen;
+    // }
+
+    // now this is the second approach
+    // first one is more readable but second one is easy and fast
+    
+    public static int[] longestZigZagPath_(TreeNode root) {
+        if(root == null){
+            int[] arr = new int[3];
+            arr[0] = arr[1] = -1;
+            arr[2] = 0;
+            return arr;
+        }
+
+        int[] left = longestZigZagPath_(root.left);
+        int[] right = longestZigZagPath_(root.right);
+
+        int[] res = new int[3];
+        res[2] = Math.max(Math.max(left[2], right[2]), Math.max(left[1], right[0]) + 1);
+        res[1] = right[0] + 1;
+        res[0] = left[1] + 1;
+        return res;
     }
 
     public static int longestZigZagPath(TreeNode root) {
-        Pair res = longestZigZagPath_(root);
-        return res.maxlen;
+        int[] res = longestZigZagPath_(root);
+        return res[2];
     }
 
     // input_Section_====================================================================
