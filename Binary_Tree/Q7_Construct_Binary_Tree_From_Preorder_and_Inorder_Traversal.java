@@ -14,7 +14,7 @@ public class Q7_Construct_Binary_Tree_From_Preorder_and_Inorder_Traversal {
     }
 
     public static TreeNode buildTree_(int[] preorder, int psi, int pei, int[] inorder, int isi, int iei) {
-        if(isi > iei) return null;
+        if(isi > iei || psi > pei) return null;
         TreeNode node = new TreeNode(preorder[psi]);
         int idx = isi;
         while (inorder[idx] != preorder[psi]) idx++;
