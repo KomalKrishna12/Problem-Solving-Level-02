@@ -13,7 +13,7 @@ public class Q1_Recover_BST{
     }
 
     public static TreeNode getRightMostNode(TreeNode left, TreeNode curr) {
-        while(left.right != null || left.right != curr) left = left.right;
+        while(left.right != null && left.right != curr) left = left.right;
         return left;
     }
 
@@ -23,7 +23,7 @@ public class Q1_Recover_BST{
             TreeNode left = curr.left;
             if(left == null){
                 if(prev != null && prev.val > curr.val){
-                    if(a != null) a = prev;
+                    if(a == null) a = prev;
                     b = curr;
                 }
                 prev = curr;
@@ -37,8 +37,8 @@ public class Q1_Recover_BST{
                 }
                 else{
                     rightmost.right = null;
-                    if(prev != null && prev.val > curr.val){
-                        if(a != null) a = prev;
+                    if(prev.val > curr.val){
+                        if(a == null) a = prev;
                         b = curr;
                     }
                     prev = curr;
@@ -46,7 +46,7 @@ public class Q1_Recover_BST{
                 }
             }
         }
-        while(a != null){
+        if(a != null){
             int temp = a.val;
             a.val = b.val;
             b.val = temp;
