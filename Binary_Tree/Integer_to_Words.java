@@ -5,9 +5,6 @@ public class Integer_to_Words {
 
     static String[] tens = {"","ten","twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety"} ;
     
-    
-        
-        
     public static String get_nums(int num) {
         
         String s = "" ;
@@ -44,16 +41,7 @@ public class Integer_to_Words {
         int tens = (int) (n) ;
         n = n % 10 ;
 
-        // System.out.println(crore + " crore ");
-        // System.out.println(lakh + " lakh");
-        // System.out.println(thousand + " thousand");
-        // System.out.println(hundread + " hundred");
-        // System.out.println(tens + " tens ");
-        // // System.out.println(singleDigit);
-
         String word = "" ;
-
-        // System.out.println(get_nums(crore) +" crore");
 
         if (crore != 0) {
             word += get_nums(crore) +" crore " ;
@@ -79,8 +67,6 @@ public class Integer_to_Words {
         }
 
         // System.out.println(word);
-
-
         return word ;
     }
     public static void main(String[] args) {
