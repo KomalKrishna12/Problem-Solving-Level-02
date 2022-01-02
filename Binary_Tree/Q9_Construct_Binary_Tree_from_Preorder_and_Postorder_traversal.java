@@ -12,6 +12,13 @@ public class Q9_Construct_Binary_Tree_from_Preorder_and_Postorder_traversal {
             this.val = val;
         }
     }
+
+    // psi  : preorder start index,  pei  : preorder end index
+    // pssi : postorder start index, psei : postorder end index
+    // left pre = psi + 1, psi + count
+    // left post = pssi, idx
+    // right pre = psi + count + 1, pei
+    // right post = idx + 1, psei - 1
     public static TreeNode constructFromPrePost_(int[] pre, int psi, int pei, int[] post, int pssi, int psei) {
         if(psi > pei) return null;
         TreeNode node = new TreeNode(pre[psi]);
