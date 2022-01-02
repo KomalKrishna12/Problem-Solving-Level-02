@@ -13,6 +13,19 @@ public class Q10_Construct_binary_tree_from_level_order_and_inorder_traversal {
         }
     }
 
+    // levelorder array contain root of binary tree as first element so use the same logic which we use in 
+    // construct binary tree from preorder and inorder traversal
+    // now create a TreeNode root and insert levelorder[0] as data
+    // now check the length of levelorder or isi and iei index
+    // if levelorder.length == 1 || isi == iei that means there is only one element in the array
+    // so after creating root node return root
+    // now create a int idx so set it at the root val of inorder array
+    // Now create a HashSet set and add all values of inorder[] from [isi, idx) (including isi, excluding idx)
+    // now create two array for leftlevelordertraversal and rightlevelordertraversal
+    // leftorder contain all elements which are in set and rightorder contain all elements which are not in set
+    // so start a for loop from 0 to levelorder.length, loop start from 1 because 0th index is the root
+    // create a variable element which store all values of array levelorder[i] i -> [1, levelorder.length)
+    // now for node.left pass leftorder in place of levelorder and rightorder for node.right
     public static TreeNode buildTree(int[] inorder, int isi, int iei, int[] levelOrder) {
         if (isi > iei)
             return null;
