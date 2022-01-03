@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Q11_Serialize_and_Deserialize_Binary_Tree{
     public static Scanner scn = new Scanner(System.in);
 
@@ -32,8 +34,20 @@ public class Q11_Serialize_and_Deserialize_Binary_Tree{
     }
 
     // Decodes your encoded data to tree.
+    static int idx = 0;
+    public static TreeNode deserialize(String[] arr) {
+        if(idx == arr.length || arr[idx].equals("null")){
+            idx++;
+            return null;
+        }
+        TreeNode node = new TreeNode(Integer.parseInt(arr[idx++]));
+        node.left = deserialize(arr);
+        node.right = deserialize(arr);
+        return node;
+    }
     public static TreeNode deserialize(String str) {
-
+        String[] arr = str.split(",");
+        return deserialize(arr);
     }
 
     // input_section=================================================
