@@ -12,8 +12,43 @@ public class Q5_Construct_BST_From_Levelorder_Traversal {
         }
     }
 
+    public static class Pair{
+        TreeNode parent = null;
+        int lb = Integer.MIN_VALUE;
+        int rb = Integer.MAX_VALUE;
+        Pair(TreeNode parent, int lb, int rb){
+            this.parent = parent;
+            this.lb = lb;
+            this.rb = rb;
+        }
+        Pair(){}
+    }
+
     public static TreeNode constructBSTFromLevelOrder(int[] LevelOrder) {
-        return null;
+        int n = LevelOrder.length;
+        int idx = 0;
+        LinkedList<Pair> queue = new LinkedList<>();
+        queue.add(new Pair());
+        TreeNode root = null;
+        while(queue.size() != 0 && idx < n){
+            Pair removedPair = queue.removeFirst();
+            int element = LevelOrder[idx];
+            if(element < removedPair.lb || element > removedPair.rb) continue;
+            TreeNode node = new TreeNode(element);
+            idx++;
+            if(removedPair.parent == null) root = node;
+            else{
+                if(removedPair.parent.val > element){
+                    removedPair.parent.left = node;
+                }
+                else{
+                    removedPair.parent.right = node;
+                }
+            }
+            queue.addLast(new Pair(node, removedPair.lb, node.val));
+            queue.addLast(new Pair(node, node.val, removedPair.rb));
+        }
+        return root;
     }
 
     // input_section=================================================
