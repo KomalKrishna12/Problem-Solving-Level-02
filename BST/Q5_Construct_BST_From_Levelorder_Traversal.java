@@ -24,6 +24,21 @@ public class Q5_Construct_BST_From_Levelorder_Traversal {
         Pair(){}
     }
 
+    // to construct BST using Level order traversal we use queue
+    // for queue we use Linked List
+    // Linked List will be of class Pair which is having parent node and its left an right bound
+    // firstly add first element as null and left bound as -infinity and right bound as +infinity
+    // create a root node assign it null
+    // now run a while loop till queue size is not become 0 and idx is less then n, idx is index to
+    // traverse in levelorder and n is the size of levelorder
+    // remove pair from first so use removeFirst function
+    // element will store levelorder[idx]
+    // if element is less than lb or greater than rb then use continue
+    // create a TreeNode node with value as element
+    // increase idx by 1
+    // if removepair.parent is null then set node as root
+    // else if element is less than removepair.parent.val then assign it as left node else right node
+    // now add node left and right in queue
     public static TreeNode constructBSTFromLevelOrder(int[] LevelOrder) {
         int n = LevelOrder.length;
         int idx = 0;
