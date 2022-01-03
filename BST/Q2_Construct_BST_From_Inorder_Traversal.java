@@ -12,7 +12,10 @@ public class Q2_Construct_BST_From_Inorder_Traversal {
             this.val = val;
         }
     }
-    
+
+    // Inorder traversa of BST is in Sorted order and mid index is the root node
+    // so start create a mid index which will be (isi + iei)/2 now pass (isi, mid-1) into root.left
+    // and (mid + 1, iei) into root.right
     public static TreeNode constructFromInOrder(int[] in, int isi, int iei) {
         if(isi > iei) return null;
         int mid = (isi + iei)/2;
