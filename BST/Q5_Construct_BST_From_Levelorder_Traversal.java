@@ -48,7 +48,7 @@ public class Q5_Construct_BST_From_Levelorder_Traversal {
         while(queue.size() != 0 && idx < n){
             Pair removedPair = queue.removeFirst();
             int element = LevelOrder[idx];
-            if(element < removedPair.lb || element > removedPair.rb) continue;
+            if(element < removedPair.lb || removedPair.rb < element) continue;
             TreeNode node = new TreeNode(element);
             idx++;
             if(removedPair.parent == null) root = node;
