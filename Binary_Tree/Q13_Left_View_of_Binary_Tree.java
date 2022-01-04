@@ -13,6 +13,15 @@ public class Q13_Left_View_of_Binary_Tree {
     }
 
     // left view that means first node in each level will be printed
+    // we create a queue using linkedlist
+    // we use addLast() and removeFirst() function of linked list so that it'll behave like queue FIFO
+    // firstly add root into queue
+    // now run a loop till queue.size() != 0
+    // create a variable size inside loop and add the first node val into array list
+    // now run inside a while loop till size != 0
+    // now remove node from removeFirst()
+    // if it's left node exists then add left node in last
+    // if right node exists then add right node 
     public static ArrayList<Integer> leftView(TreeNode root) {
         if(root == null) return null;
         ArrayList<Integer> list = new ArrayList<>();
