@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Q11_Serialize_and_Deserialize_Binary_Tree{
@@ -48,6 +49,19 @@ public class Q11_Serialize_and_Deserialize_Binary_Tree{
     public static TreeNode deserialize(String str) {
         String[] arr = str.split(",");
         return deserialize(arr);
+    }
+
+    static int index = 0;
+    public static TreeNode deserial(ArrayList<Integer> list){
+        if(index == list.size()) return null;
+        if(list.get(index).equals(null)){
+            index++;
+            return null;
+        }
+        TreeNode node = new TreeNode(list.get(index++));
+        node.left = deserial(list);
+        node.right = deserial(list);
+        return node;
     }
 
     // input_section=================================================
