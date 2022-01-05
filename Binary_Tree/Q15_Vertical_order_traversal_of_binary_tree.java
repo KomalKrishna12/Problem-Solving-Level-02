@@ -37,24 +37,30 @@ public class Q15_Vertical_order_traversal_of_binary_tree {
     // if left or right is not null then add that child using addLast()
     public static ArrayList<ArrayList<Integer>> verticalOrderTraversal(TreeNode root) {
         LinkedList<vPair> queue = new LinkedList<>();
+        // using hashmap we're storing node in there vertical order
         HashMap<Integer, ArrayList<Integer>> map = new HashMap<>();
         int max = 0, min = 0;
+        // root is having 0 hl if left then (hl - 1), if right (hl + 1)
         queue.add(new vPair(root, 0));
         while(queue.size() != 0){
             int size = queue.size();
+            // this loop will run till size become 0 using this size we are traversing in level order
             while(size-- > 0){
                 vPair rp = queue.removeFirst();
 
-                max = Math.max(max, rp.hl);
+                max = Math.max(max, rp.hl); // update max if any rp.hl is greater than previous max 
                 min = Math.min(min, rp.hl);
 
-                map.putIfAbsent(rp.hl, new ArrayList<>());
-                map.get(rp.hl).add(rp.node.val);
+                map.putIfAbsent(rp.hl, new ArrayList<>()); // if key is not present in map then create using this
+                map.get(rp.hl).add(rp.node.val); // now add value in that particular key
 
                 if(rp.node.left != null) queue.addLast(new vPair(rp.node.left, rp.hl - 1));
                 if(rp.node.right != null) queue.addLast(new vPair(rp.node.right, rp.hl + 1));
             }
         }
+        // now create an ArrayList of ArrayList from min to max
+        // now add array list availabe at particular key(i) in map
+        // return ans
         ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
         for(int i = min; i <= max; i++){
             ans.add(map.get(i));
