@@ -63,6 +63,7 @@ public class Q15_Vertical_order_traversal_of_binary_tree {
         // return ans
         ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
         for(int i = min; i <= max; i++){
+            Collections.sort(map.get(i));
             ans.add(map.get(i));
         }
         return ans;
