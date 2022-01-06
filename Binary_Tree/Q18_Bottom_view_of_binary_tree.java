@@ -28,6 +28,11 @@ public class Q18_Bottom_view_of_binary_tree {
         width(node.right, hl + 1, minmax); 
     }
 
+    // in this question we are required to print all nodes which will be shown from bottom
+    // we use same concept of vertical order traversal
+    // in that question we were creating a sepatae array list for all level
+    // but here we'll only create a single list to add bottom view nodes
+    // so in single array list when other node come it'll override previous node value
     public static ArrayList<Integer> BottomView(TreeNode root) {
         ArrayList<Integer> list = new ArrayList<>();
         if(root == null) return list;
