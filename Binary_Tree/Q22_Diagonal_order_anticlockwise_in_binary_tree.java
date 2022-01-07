@@ -16,7 +16,7 @@ public class Q22_Diagonal_order_anticlockwise_in_binary_tree {
     // but here we want to display anti clockwise
     // so diagonal start will be our all left node
     // so add right node into queue
-    // and if left is not null then traverse left and add in diagonal
+    // and if left is not null then traverse left and add in diagonal 
     public static ArrayList<ArrayList<Integer>> diagonalOrder(TreeNode root) {
         ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
         LinkedList<TreeNode> queue = new LinkedList<>();
