@@ -15,6 +15,18 @@ public class Q21_Diagonal_order_of_a_binary_tree{
         }
     }
 
+    // in this we're required to add all diagonals in the ArrayList and and return
+    // create LinkedList queue it'll work like a queue
+    // add root in this queue
+    // run a while loop till queue.size() != 0
+    // create a variable size inside this loop which store the size of queue
+    // create an arraylist diagonal which will add all diagonal in the particular order
+    // create a loop which will run till size become zero
+    // removefirst node check that node if it is not null then add in diagonal list
+    // if it's left node exists then add that left node into queue
+    // and set rp to it's right
+    // when size become 0 while loop ended so all elements in one order added in diagonal so add this diagonal
+    // into ans arraylist and run for rest all 
     public static ArrayList<ArrayList<Integer>> diagonalOrder(TreeNode root) {
         ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
         LinkedList<TreeNode> queue = new LinkedList<>();
