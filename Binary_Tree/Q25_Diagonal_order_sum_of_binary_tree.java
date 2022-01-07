@@ -13,6 +13,15 @@ public class Q25_Diagonal_order_sum_of_binary_tree {
         }
     }
 
+    // in this question we'll add sum of each diagonal to arraylist
+    // create a queue
+    // add root in queue
+    // now create a loop which will run till queue size become 0
+    // create a var size which contain queue size and initialize sum as 0
+    // now create a while loop inside which will run till size become 0
+    // now remove first node of queue
+    // now traverse rp to it right nodes till rp become null and add it's left nodes if it's exists
+    // also add rp.val to sum which are adding diagonal node's value 
     public static ArrayList<Integer> diagonalOrderSum(TreeNode root) {
 
         ArrayList<Integer> ans = new ArrayList<>();
@@ -20,12 +29,10 @@ public class Q25_Diagonal_order_sum_of_binary_tree {
         queue.add(root);
         while(queue.size() != 0){
             int size = queue.size();
-            // ArrayList<Integer> diagonal = new ArrayList<>();
             int sum = 0;
             while(size-- > 0){
                 TreeNode rp = queue.removeFirst();
                 while(rp != null){
-                    // diagonal.add(rp.val);
                     sum += rp.val;
                     if(rp.left != null) queue.addLast(rp.left);
                     rp = rp.right;
