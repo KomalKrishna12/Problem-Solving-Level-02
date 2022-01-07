@@ -31,6 +31,21 @@ public class Q23_Verticle_order_sum_of_a_binary_tree {
         width(node.right, hl + 1, minmax); 
     }
 
+    // in this question we're required to calculate the sum of each verticle order
+    // so we use verticle order conecpt
+    // create an arraylist ans
+    // using width function calculate length
+    // add 0 in and till i become len
+    // now create q queue
+    // add root with its hl
+    // now create a while loop it'll run till queue becomes empty
+    // now create a var size which contain queue.size()
+    // create another while loop till size-- > 0
+    // removefirst pair
+    // create a node and store rp.node and in hl store rp.hl
+    // now get the prev value which is present at index hl of ans array list and add it with node.val
+    // and set the added value to hl index
+    // now if node.left is not null and node.right is not null than add that pair at last of queue
     public static ArrayList<Integer> verticalOrderSum(TreeNode root) {
         ArrayList<Integer> ans = new ArrayList<>();
 
