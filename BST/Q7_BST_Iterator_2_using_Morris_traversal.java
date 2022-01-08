@@ -13,6 +13,15 @@ public class Q7_BST_Iterator_2_using_Morris_traversal {
         }
     }
 
+    // this is the second approach for BST Iterator using morris traversal
+    // same approach we use in morris inorder traversal
+    // create a curr node which point to root
+    // create a while loop which will run till curr != null
+    // inside loop create leftnode which store curr.left
+    // if leftnode is null than set res as curr node and set curr to it's right
+    // if leftnode is not null cretae rmn(right most node) store this by calling getrmn(leftnode)
+    // if rmn.right is null then create a thred so set curr to its right and move curr to its left
+    // if thread is already created then break the thread set res at curr and move curr to it's right and break
     public static class BSTIterator {
         TreeNode curr = null;
 
