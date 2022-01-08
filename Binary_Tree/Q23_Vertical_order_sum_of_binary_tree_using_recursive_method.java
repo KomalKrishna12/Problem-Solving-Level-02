@@ -23,12 +23,12 @@ public class Q23_Vertical_order_sum_of_binary_tree_using_recursive_method {
     }
 
     // this is the second approach of vertical order sum
-    public static void verticalOrderSum(TreeNode root, int hl, ArrayList<Integer> ans) {
+    public static void dfs(TreeNode root, int hl, ArrayList<Integer> ans) {
         if(root == null) return;
 
         ans.set(hl, ans.get(hl) + root.val);
-        verticalOrderSum(root.left, hl - 1, ans);
-        verticalOrderSum(root.right, hl + 1, ans);
+        dfs(root.left, hl - 1, ans);
+        dfs(root.right, hl + 1, ans);
     }
 
     public static ArrayList<Integer> verticalOrderSum(TreeNode root) {
@@ -37,8 +37,8 @@ public class Q23_Vertical_order_sum_of_binary_tree_using_recursive_method {
         int len = minmax[1] - minmax[0] + 1;
         ArrayList<Integer> ans = new ArrayList<>();
         for(int i = 0; i < len; i++) ans.add(0);
-        verticalOrderSum(root, Math.abs(minmax[0]), ans);
-        return null;
+        dfs(root, Math.abs(minmax[0]), ans);
+        return ans;
     }
 
     // input_section=================================================
