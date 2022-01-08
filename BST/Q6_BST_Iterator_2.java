@@ -13,6 +13,12 @@ public class Q6_BST_Iterator_2 {
         }
     }
 
+    // create q stack using linkedlist removeFirst() and addFirst()
+    // add root in the stack
+    // and add all its left node
+    // now check the top of stack
+    // display and add it's right node and add all it's left node
+    // so it'll work like recursion stack
     public static class BSTIterator {
         LinkedList<TreeNode> st;
 
