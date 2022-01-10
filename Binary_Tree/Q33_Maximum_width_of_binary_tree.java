@@ -20,7 +20,25 @@ public class Q33_Maximum_width_of_binary_tree{
           this.idx = idx;
       }
   }
-
+  
+  // in Q17 we found shadow of width of binary tree so we were found the left most node and right most node
+  // and return their difference with adding 1
+  // but in this question we're finding max width of tree so we're required to found width for each level
+  // and return the max width
+  // here we use level order traversal approach
+  // craete a queue with the help of linkedlist function removeFirst() and addLast()
+  // create a max var initialize it with 0
+  // now add root node with idx 0 into que
+  // craete a while loop which will run till que become empty
+  // now set ls and rs with first index using getFirst()
+  // store size of queue using que.size() and run inner while loop till size become 0
+  // update rs with rp.idx
+  // because we want left most idx and right most idx
+  // ls and rs is set to left most at first
+  // and after loop rs will set to right most idx
+  // if left or right exist then add with idx (parent = i then left = i * 2 + 1 and right = i * 2 + 2)
+  // after inner loop calculate ls - rs + 1 which is the width of single level and compare it with max
+  // and return max at end
   public static int widthOfBinaryTree(TreeNode root) {
       if(root == null) return 0;
       LinkedList<Pair> que = new LinkedList<>();
