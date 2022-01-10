@@ -12,6 +12,9 @@ public class Q32_Burning_Tree_2 {
     }
   }
 
+  // if ans.size() == time then create an array list inside ans array list 
+  // add root.val at array list index time 
+
   public static void burnDown(TreeNode root, TreeNode block, ArrayList<ArrayList<Integer>> ans, int time){
       if(root == null || root == block) return;
 
@@ -22,6 +25,8 @@ public class Q32_Burning_Tree_2 {
       burnDown(root.right, block, ans, time + 1);
   }
 
+  // this is the same question like burning tree but here we want to store all the nodes with their respective time
+  // like if a, b, c is burning at time 1 then it'll store in the array list of array list at index 1
   public static int burningTree_(TreeNode root, int data, ArrayList<ArrayList<Integer>> ans){
       if(root == null) return -1;
       if(root.val == data){
