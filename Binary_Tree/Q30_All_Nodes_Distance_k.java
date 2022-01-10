@@ -13,62 +13,58 @@ public class Q30_All_Nodes_Distance_k {
     }
   }
 
-  public static void markParents(TreeNode root, TreeNode target, HashMap<TreeNode, TreeNode> parent_target) {
-    Queue<TreeNode> queue = new LinkedList<>();
-    queue.offer(root);
-    while (!queue.isEmpty()) {
-      TreeNode remNode = queue.poll();
-      if (remNode.left != null) {
-        parent_target.put(remNode.left, remNode);
-        queue.offer(remNode.left);
-      }
-      if (remNode.right != null) {
-        parent_target.put(remNode.right, remNode);
-        queue.offer(remNode.right);
-      }
+  public static void kdown(TreeNode node, int k, TreeNode blocker, ArrayList<Integer> ans) {
+    // if root is null or k is negetive or node is our blocker node then return
+    // if k equal to 0 then add that node into arraylist ans and return
+    // else if both condition not satisfies then call kdown with node.left and
+    // node.right and decrease k by 1
+    // becoz it is taking 1 path from node to it's left or right child
+    if (node == null || k < 0 || node == blocker)
+      return;
+    if (k == 0) {
+      ans.add(node.val);
+      return;
     }
+    kdown(node.left, k - 1, blocker, ans);
+    kdown(node.right, k - 1, blocker, ans);
   }
 
-  public static ArrayList<Integer> distanceK(TreeNode root, TreeNode target, int k) {
-    HashMap<TreeNode, TreeNode> parent_target = new HashMap<>();
-    HashMap<TreeNode, Boolean> visited = new HashMap<>();
-    markParents(root, target, parent_target);
+  public static int distance(TreeNode root, int target, int k, ArrayList<Integer> ans) {
+    // when root is null return -1
+    // when root's val equal to target call kdown and return 1
+    if (root == null)
+      return -1;
 
-    Queue<TreeNode> queue = new LinkedList<>();
-    queue.offer(target);
-    visited.put(target, true);
-    int curr_level = 0;
-
-    while (!queue.isEmpty()) {
-      int size = queue.size();
-      if (curr_level == k)
-        break;
-      curr_level++;
-
-      while (size-- > 0) {
-        TreeNode curr = queue.poll();
-        if (curr.left != null && visited.containsKey(curr.left) == false) {
-          queue.offer(curr.left);
-          visited.put(curr.left, true);
-        }
-        if (curr.right != null && visited.containsKey(curr.right) == false) {
-          queue.offer(curr.right);
-          visited.put(curr.right, true);
-        }
-        if (parent_target.get(curr) != null && visited.get(parent_target.get(curr)) == null) {
-          queue.offer(parent_target.get(curr));
-          visited.put(parent_target.get(curr), true);
-        }
-        ArrayList<Integer> ans = new ArrayList<>();
-        while (!queue.isEmpty()) {
-          ans.add(curr.val);
-        }
-        return ans;
-      }
-
+      // if root.val == target then call kdown for root and here block node will be null
+      // and return 1 that means this node is at 1 dustance from it's parent
+    if (root.val == target) {
+      kdown(root, k, null, ans);
+      return 1;
     }
 
-    return null;
+    // now if ld != -1 that means the target is in root.left so call kdown with root.left as blocker
+    // and k will be k - ld that means from left root is ld distance aways so now rest will be k - ld
+    // and return ld + 1 from left distance + 1 will our next distance
+    // same for right
+    int ld = distance(root.left, target, k, ans);
+    if(ld != -1){
+      kdown(root, k - ld, root.left, ans);
+      return ld + 1;
+    }
+
+    int rd = distance(root.right, target, k, ans);
+    if(rd != -1){
+      kdown(root, k - rd, root.right, ans);
+      return rd + 1;
+    }
+
+    return -1;
+  }
+
+  public static ArrayList<Integer> distanceK(TreeNode root, int target, int k) {
+    ArrayList<Integer> ans = new ArrayList<>();
+    distance(root, target, k, ans);
+    return ans;
   }
 
   // input_section=================================================
@@ -95,9 +91,8 @@ public class Q30_All_Nodes_Distance_k {
     TreeNode root = createTree(arr, IDX);
     int target = scn.nextInt();
     int k = scn.nextInt();
-    TreeNode targett = new TreeNode(target);
 
-    ArrayList<Integer> ans = distanceK(root, targett, k);
+    ArrayList<Integer> ans = distanceK(root, target, k);
     if (ans.size() == 0)
       System.out.println();
     for (Integer ele : ans)
