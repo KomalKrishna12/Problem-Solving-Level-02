@@ -13,6 +13,8 @@ public class Q10_Convert_sorted_doubly_ll_to_BST {
         }
     }
 
+    // left : prev
+    // right : next
     public static Node getMidNode(Node node) {
 
         if (node == null || node.right == null)
