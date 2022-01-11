@@ -41,9 +41,14 @@ public class Q8_Convert_BST_into_Sorted_Doubly_linked_list {
 
     Node head = dummy.right;
 
+    // after storing head make head.left and dummy.right null
+
     dummy.right = head.left = null;
 
     // circular doubly linked list
+    // in circular doubly linked list head is connected with the tail and here
+    // after bToDLL_() prev is at tail so simply connect tail.right to head
+    // head.left to prev
     head.left = prev;
     prev.right = head;
 
