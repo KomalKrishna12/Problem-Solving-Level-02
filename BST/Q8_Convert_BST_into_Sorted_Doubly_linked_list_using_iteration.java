@@ -13,6 +13,7 @@ public class Q8_Convert_BST_into_Sorted_Doubly_linked_list_using_iteration {
         }
     }
 
+    // this function will add all the left node of curr into stack if that is not null
     private static void addAllLeftNodes(Node curr, LinkedList<Node> st) {
         while (curr != null) {
             st.addFirst(curr);
@@ -20,13 +21,21 @@ public class Q8_Convert_BST_into_Sorted_Doubly_linked_list_using_iteration {
         }
     }
 
+    // this is the second approach in which we use iteration approach 
+    // firstly add all left nodes
+    // craeate a dummy node and prev, prev point to dummy here prev will traverse the tree and act like tail
+    // of linked list
+    // now run a while loop till stack size is not zero
+    // inside loop removeFirst node and store it as curr node
+    // now prev right point to curr and curr left point to prev and prev will set to curr
+    // and now add all it's left nodes and repeat 
     public static Node bToDLL(Node root) {
         LinkedList<Node> st = new LinkedList<>();
         addAllLeftNodes(root, st);
         Node dummy = new Node(-1);
         Node prev = dummy;
 
-        while(st.size() != 0){
+        while (st.size() != 0) {
             Node curr = st.removeFirst();
 
             prev.right = curr;
@@ -35,7 +44,7 @@ public class Q8_Convert_BST_into_Sorted_Doubly_linked_list_using_iteration {
 
             addAllLeftNodes(curr.right, st);
         }
-        
+
         Node head = dummy.right;
         dummy.right = head.left = null;
 
