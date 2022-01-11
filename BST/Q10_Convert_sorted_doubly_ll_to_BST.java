@@ -30,17 +30,31 @@ public class Q10_Convert_sorted_doubly_ll_to_BST {
 
     // left : prev, right : next
     public static Node SortedDLLToBST(Node head) {
+        // if node is null or only node exists then return node 
         if (head == null || head.right == null)
             return head;
+
+        // get middle node using getMidNode() that will be our root node    
         Node midNode = getMidNode(head);
         Node root = midNode; 
         
+        // now call this method using recursion for left side of list and right side of list
+        // for right side of list midNode.right will become our new head
+        // prev will store midNode.left so we can check that left node exists or not
         Node nhead = midNode.right;
         Node prev = midNode.left;
 
+        // now set midnode's right and left as null so their link will be break and we can pass left and right
+        // tree for left binary tree and right binary tree
+        // if prev is not null then break prev's left node also
         midNode.left = midNode.right = nhead.left = null;
         if(prev != null) prev.right = null;
 
+        // if prev is not null then head will be our leftnode
+        // for right nhead will be our new right head
+        // now pass both leftnode and rightnode for making binary tree and connect it with root.left
+        // and root.right
+        // at end return root
         Node leftNode = prev != null ? head : null;
         Node rightNode = nhead;
 
