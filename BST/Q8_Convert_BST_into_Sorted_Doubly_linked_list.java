@@ -1,6 +1,7 @@
 import java.util.*;
-public class Q8_Convert_BST_into_Sorted_Doubly_linked_list{
-    public static Scanner scn = new Scanner(System.in);
+
+public class Q8_Convert_BST_into_Sorted_Doubly_linked_list {
+  public static Scanner scn = new Scanner(System.in);
 
   public static class Node {
     int val = 0;
@@ -12,8 +13,34 @@ public class Q8_Convert_BST_into_Sorted_Doubly_linked_list{
     }
   }
 
+  private static Node prev = null;
+
+  private static void bToDLL_(Node root) {
+    if(root == null) return;
+
+    bToDLL_(root.left);
+
+    prev.right = root;
+    root.left = prev;
+    prev = root;
+
+    bToDLL_(root.right);
+  }
+
   public static Node bToDLL(Node root) {
-    return null;
+    Node dummy = new Node(-1);
+    prev = dummy;
+    bToDLL_(root);
+
+    Node head = dummy.right;
+
+    dummy.right = head.left = null;
+
+    // circular doubly linked list
+    head.left = prev;
+    prev.right = head;
+
+    return head;
   }
 
   // input_section=================================================
