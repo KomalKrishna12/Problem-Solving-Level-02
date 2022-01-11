@@ -27,6 +27,13 @@ public class Q8_Convert_BST_into_Sorted_Doubly_linked_list {
     bToDLL_(root.right);
   }
 
+  // here we're using a static Node prev initialize it with null
+  // assume that node.left acts like node.prev and node.right acts like node.next
+  // craeate a dummy Node with data -1 and assign prev to dummy
+  // now like we traverse inorder we traverse for this and when left operation completed and
+  // we're going to perform right then perform 
+  // prev.right will point to root and root.left point to prev and prev assign to root
+  // we're using static node so that prev will change with recursion
   public static Node bToDLL(Node root) {
     Node dummy = new Node(-1);
     prev = dummy;
