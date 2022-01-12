@@ -32,8 +32,23 @@ public class Q36_Diameter_of_binary_tree {
       return Math.max(Math.max(ld, rd), mydia);
   }
 
+  public static int[] diameter_2(TreeNode node){
+      if(node == null) return new int[]{0, -1};
+
+      int[] ldia = diameter_2(node.left);
+      int[] rdia = diameter_2(node.right);
+
+      int[] mydia = new int[2];
+      mydia[0] = Math.max(Math.max(ldia[0], rdia[0]), ldia[1] + rdia[1] + 2);
+      mydia[1] = Math.max(ldia[1], rdia[1]) + 1;
+
+      return mydia;
+  }
+
   public static int diameterOfBinaryTree(TreeNode root) {
-    return diameter_1(root);
+    //return diameter_1(root);
+    int[] ans = diameter_2(root);
+    return ans[0];
   }
 
   // input_Section=================================================
