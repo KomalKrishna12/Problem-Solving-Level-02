@@ -32,6 +32,9 @@ public class Q36_Diameter_of_binary_tree {
       return Math.max(Math.max(ld, rd), mydia);
   }
 
+  // in this second approach we're not craeting a height method separtely becoz of that it is taking o(n^2)
+  // time complexity so here we use an array of size 2 at index 0 we store diameter value and at index 1
+  // we store height value
   public static int[] diameter_2(TreeNode node){
       if(node == null) return new int[]{0, -1};
 
