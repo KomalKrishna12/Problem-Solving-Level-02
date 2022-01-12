@@ -48,10 +48,33 @@ public class Q36_Diameter_of_binary_tree {
       return mydia;
   }
 
+  // now this is third approach here we'll use a static variable 
+  // here we're calculating height and simultaneously updating our dia by comparing dia and lh + rh + 2
+  public static int dia = 0;
+  public static int diameter_3(TreeNode node){
+
+      if(node == null) return -1;
+
+      int lh = diameter_3(node.left);
+      int rh = diameter_3(node.right);
+
+      dia = Math.max(dia, lh + rh + 2);
+
+      return Math.max(lh, rh) + 1;
+
+  }
+
   public static int diameterOfBinaryTree(TreeNode root) {
+      // first :
     //return diameter_1(root);
-    int[] ans = diameter_2(root);
-    return ans[0];
+
+    // second :
+    // int[] ans = diameter_2(root);
+    // return ans[0];
+
+    // third :
+    diameter_3(root);
+    return dia;
   }
 
   // input_Section=================================================
