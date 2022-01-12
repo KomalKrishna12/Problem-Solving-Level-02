@@ -18,6 +18,7 @@ public class Q35_Path_sum_II {
       if(root == null) return;
       if(root.left == null && root.right == null){
           if(targetSum - root.val == 0){
+              // here we're creating a deep copy of small list so it'll copy all values of small into base
               ArrayList<Integer> base = new ArrayList<>(small);
               base.add(root.val);
               res.add(base);
