@@ -92,13 +92,35 @@ public class Q37_Maximum_path_sum_in_between_two_leaves_of_binary_tree {
         }
 
         return Math.max(lm, rm) + root.val;
+    }
 
+    // if don't want to use static variable then we can create an array of size 1 and in compare of max
+    // use max[0]
+    public static int max2(TreeNode root, int[] max) {
+        if (root == null)
+            return -(int) 1e9 - 1;
+        if (root.left == null && root.right == null) {
+            return root.val;
+        }
+        int lm = max2(root.left, max);
+        int rm = max2(root.right, max);
+
+        if (root.left != null && root.right != null) {
+            max[0] = Math.max(max[0], lm + root.val + rm);
+        }
+
+        return Math.max(lm, rm) + root.val;
     }
 
     public static int maxPathSum(TreeNode root) {
         // return maxPathSum_(root).LTLmax;
-        max(root);
-        return max;
+        // max(root);
+        // return max;
+
+        int[] max = new int[1];
+        max[0] = -(int) 1e9 - 1;
+        max2(root, max);
+        return max[0];
     }
 
     // input_Section=================================================
