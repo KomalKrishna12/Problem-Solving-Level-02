@@ -11,9 +11,37 @@ public class Q37_Maximum_path_sum_in_between_two_leaves_of_binary_tree{
         this.val = val;
       }
     }
+
+    public static class Pair{
+        int LTLmax = - (int)1e9 - 1; // leave to leave max sum
+        int NTLmax = - (int)1e9 - 1; // node to leave max sum
+    }
+
+    public static Pair maxPathSum_(TreeNode root) {
+
+        Pair myAns = new Pair();
+        if(root == null) return myAns;
+
+        if(root.left == null && root.right == null){
+            myAns.NTLmax = root.val;
+            return myAns;
+        }
+        
+        Pair left = maxPathSum_(root.left);
+        Pair right = maxPathSum_(root.right);
+
+        myAns.LTLmax = Math.max(left.LTLmax, right.LTLmax);
+        if(root.left != null && root.right != null){
+            myAns.LTLmax = Math.max(myAns.LTLmax, left.NTLmax + root.val + right.NTLmax);
+        }
+
+        myAns.NTLmax = Math.max(left.NTLmax, right.NTLmax) + root.val;
+        return myAns;
+        
+    }
   
     public static int maxPathSum(TreeNode root) {
-      return 0;
+      return maxPathSum_(root).LTLmax;
     }
   
     // input_Section=================================================
