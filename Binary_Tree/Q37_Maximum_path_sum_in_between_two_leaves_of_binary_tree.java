@@ -59,6 +59,23 @@ public class Q37_Maximum_path_sum_in_between_two_leaves_of_binary_tree{
         return myAns;
         
     }
+
+    public static int max = 0;
+    public static int max(TreeNode root){
+        if(root == null) return -(int)1e9 -1;
+        if(root.left == null && root.right == null){
+            return root.val;
+        }
+        int lm = max(root.left);
+        int rm = max(root.right);
+
+        if(root.left != null && root.right != null){
+            max = Math.max(max, lm + root.val + rm);
+        }
+
+        return Math.max(lm, rm) + root.val;
+
+    }
   
     public static int maxPathSum(TreeNode root) {
       return maxPathSum_(root).LTLmax;
