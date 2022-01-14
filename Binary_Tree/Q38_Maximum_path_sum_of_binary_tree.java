@@ -1,6 +1,6 @@
 import java.util.*;
 public class Q38_Maximum_path_sum_of_binary_tree{
-    public static Scanner scn = new Scanner(System.in);
+  public static Scanner scn = new Scanner(System.in);
 
   public static class TreeNode {
     int val = 0;
@@ -12,8 +12,37 @@ public class Q38_Maximum_path_sum_of_binary_tree{
     }
   }
 
+  static class Pair{
+    int NTN_maxSum = Integer.MIN_VALUE;
+    int RTN_maxSum = 0;
+  }
+
+  public static int getMax(int... arr){
+    int max = arr[0];
+    for (int val : arr) {
+      max = Math.max(max, val);
+    }
+    return max;
+  }
+
+  public static Pair maxPathSum_(TreeNode root) {
+    if(root == null) return new Pair();
+
+    Pair lp = maxPathSum_(root.left);
+    Pair rp = maxPathSum_(root.right);
+
+    Pair myAns = new Pair();
+
+    myAns.RTN_maxSum = Math.max(lp.RTN_maxSum, rp.RTN_maxSum) + root.val;
+    myAns.NTN_maxSum = getMax(root.val, lp.NTN_maxSum, rp.NTN_maxSum, 
+                       lp.RTN_maxSum + root.val + rp.RTN_maxSum, myAns.RTN_maxSum);
+    myAns.RTN_maxSum = Math.max(myAns.RTN_maxSum, root.val);
+    return myAns;
+  }
+
   public static int maxPathSum(TreeNode root) {
-    return 0;
+    if(root == null) return 0;
+    return maxPathSum_(root).NTN_maxSum;
   }
 
   // input_Section=================================================
