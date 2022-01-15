@@ -12,19 +12,31 @@ public class Q39_Path_sum_equal_to_given_value{
       }
     }
 
-    public static void pathSum_(TreeNode root, int k, int count){
-        if(root == null) return;
+    public static int ans = 0;
 
-        if(k - root.val == 0) count++;
-
-        pathSum_(root.left, k - root.val, count);
-        pathSum_(root.right, k - root.val, count);
+    public static void pathSum(TreeNode node, HashMap<Integer, Integer> map, int tar, int prefixSum) {
+      if (node == null)
+        return;
+  
+      prefixSum += node.val;
+      ans += map.getOrDefault(prefixSum - tar, 0);
+  
+      map.put(prefixSum, map.getOrDefault(prefixSum, 0) + 1);
+  
+      pathSum(node.left, map, tar, prefixSum);
+      pathSum(node.right, map, tar, prefixSum);
+  
+      map.put(prefixSum, map.get(prefixSum) - 1);
+      if (map.get(prefixSum) == 0)
+        map.remove(prefixSum);
     }
   
     public static int pathSum(TreeNode root, int K) {
-        int count = 0;
-        pathSum_(root, K, count);
-        return count;
+      // prefix sum , Frequency
+      HashMap<Integer, Integer> map = new HashMap<>();
+      map.put(0, 1);
+      pathSum(root, map, K, 0);
+      return ans;
     }
   
     // input_section=================================================
