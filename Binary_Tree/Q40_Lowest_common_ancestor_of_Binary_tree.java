@@ -13,6 +13,15 @@ public class Q40_Lowest_common_ancestor_of_Binary_tree {
     }
   }
   
+  // we can found lowest common ancestor using a static Node LCA
+  // we use three boolean values for this
+  // first check self, if root.val == p or q then self become true
+  // now check left and right
+  // if left and right or self and right or self and left any two become true that means the node 
+  // is our ancestor so set node as LCA
+  // while finding left and right check lca != null if yes then return true and print LCA
+  // at end return left && right || right && self || left && self
+  // if any conction become true then return true
   static TreeNode LCA = null;
   
   public static boolean LCA_(TreeNode node, int p, int q) {
