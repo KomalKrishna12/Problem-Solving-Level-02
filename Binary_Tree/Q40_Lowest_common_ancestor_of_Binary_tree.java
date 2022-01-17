@@ -90,6 +90,8 @@ public class Q40_Lowest_common_ancestor_of_Binary_tree {
     int e1 = scn.nextInt();
     int e2 = scn.nextInt();
 
+    
+
     TreeNode ans = lowestCommonAncestor(root, e1, e2);
     System.out.println(ans == null ? null : ans.val);
   }
