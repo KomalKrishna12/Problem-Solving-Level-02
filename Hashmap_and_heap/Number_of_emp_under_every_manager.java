@@ -14,7 +14,7 @@ public class Number_of_emp_under_every_manager {
                 ceo = man;
             }
             else{
-                if(map.containsKey(man)){
+                if(tree.containsKey(man)){
                     HashSet<String> emps = tree.get(man);
                     emps.add(emp);
                 }
