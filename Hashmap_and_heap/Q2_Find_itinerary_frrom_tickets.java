@@ -51,5 +51,39 @@ public class Q2_Find_itinerary_frrom_tickets {
                 break;
             }
         }
+        
 	}
+    // leetcode 332
+    public static List<String> findItinerary(List<List<String>> tickets) {
+        List<String> list = new ArrayList<>();
+
+        String src = "";
+        HashMap<String, Boolean> potentialSrc = new HashMap<>();
+
+        for(List<String> tic : tickets){
+            potentialSrc.put(tic.get(1), false);
+            if(potentialSrc.containsKey(tic.get(0)) == false) 
+            potentialSrc.put(tic.get(0), true);
+        }
+
+        for(String psrc : potentialSrc.keySet()){
+            if(potentialSrc.get(psrc)){
+                src = psrc;
+                break;
+            }
+        }
+
+        for(List<String> tic : tickets){
+            if(tic.get(0) == src){
+                list.add(src);
+                src = tic.get(1);
+            }
+            else{
+                list.add(src);
+                break;
+            }
+        }
+
+        return list;
+    }
 }
