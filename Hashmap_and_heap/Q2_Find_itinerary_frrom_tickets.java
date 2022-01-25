@@ -12,6 +12,19 @@ public class Q2_Find_itinerary_frrom_tickets {
         scn.close();
 
 		//write your code here
+        // 4
+        // Chennai  Banglore
+        // Bombay   Delhi
+        // Goa      Chennai
+        // Delhi    Goa
+        // so here we are given four tickets from src to destination
+        // we are required to calculate the journey from src to destination
+        // o/p : Bombay -> Delhi -> Goa -> Chennai -> Banglore
+        // so first of all we've to find the starting point
+        // for this we created a hashmap of string and boolean
+        // for destination put false and if src is not in newly created hashmap then put it with true
+        // after this we have our src now run a while loop and print src and make src with it's destination
+        // wehen we reach destination then print src with full stop and break
         String src = "";
         HashMap<String, Boolean> potentialSrc = new HashMap<>();
         for(String psrc : map.keySet()){
