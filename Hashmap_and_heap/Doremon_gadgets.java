@@ -4,6 +4,13 @@ public class Doremon_gadgets{
     {
         // code here
         ArrayList<Integer> ans = new ArrayList<>();
+        
+        //HashMap<Integer, Integer> map = new HashMap<>();
+
+        for(int i = 0; i < array.size(); i++){
+            
+        }
+
         return ans;
     }
     public static void main(String[] args) {
@@ -15,6 +22,7 @@ public class Doremon_gadgets{
         list.add(2);
         list.add(2);
         list.add(3);
-        System.out.println(list);
+        ArrayList<Integer> ans = TopK(list, 2);
+        System.out.println(ans);
     }
 }
