@@ -7,7 +7,7 @@ public class Q4_Count_Distinct_element_in_window_of_k {
         // create a hashmap and add k-1 elements into the map with their frequency
         // now do this 3 step - add -> display -> remove
         // add kth element
-        // count the size of ma
+        // count the size of ma  
         // and remove first elment of k length window 
         HashMap<Integer, Integer> map = new HashMap<>();
         for(int i = 0; i < k-1; i++){
