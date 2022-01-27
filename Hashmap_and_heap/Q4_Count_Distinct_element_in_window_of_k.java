@@ -12,7 +12,7 @@ public class Q4_Count_Distinct_element_in_window_of_k {
         HashMap<Integer, Integer> map = new HashMap<>();
         for(int i = 0; i < k-1; i++){
             map.put(arr[i], map.getOrDefault(arr[i],0) + 1);
-        }
+        } 
         
         for(int i = 0, j = k-1; j < arr.length;){
             map.put(arr[j], map.getOrDefault(arr[j],0) + 1);
