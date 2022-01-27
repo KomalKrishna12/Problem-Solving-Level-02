@@ -8,7 +8,7 @@ public class Q4_Count_Distinct_element_in_window_of_k {
         // now do this 3 step - add -> display -> remove
         // add kth element
         // count the size of ma
-        // and remove first elment of k length window
+        // and remove first elment of k length window 
         HashMap<Integer, Integer> map = new HashMap<>();
         for(int i = 0; i < k-1; i++){
             map.put(arr[i], map.getOrDefault(arr[i],0) + 1);
