@@ -10,9 +10,9 @@ public class Q6_Count_all_subarrays_with_zero_sum {
         // check if sum is in the map or not
         // if it is then add map.get(sum) into count and increase occurence of sum by 1
         // else put sum with occurence 1
-        // at end return count 
+        // at end return count  
 		int count = 0;
-		int i = -1;
+		int i = -1; 
 		int sum = 0;
 		HashMap<Integer, Integer> map = new HashMap<>();
 		map.put(0,1);
