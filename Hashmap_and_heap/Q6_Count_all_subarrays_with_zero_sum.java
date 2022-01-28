@@ -12,7 +12,7 @@ public class Q6_Count_all_subarrays_with_zero_sum {
         // else put sum with occurence 1
         // at end return count  
 		int count = 0;
-		int i = -1; 
+		int i = -1;     
 		int sum = 0;
 		HashMap<Integer, Integer> map = new HashMap<>();
 		map.put(0,1);
