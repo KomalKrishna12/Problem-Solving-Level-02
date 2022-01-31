@@ -29,7 +29,7 @@ public class Q7_Largest_subarray_with_contigeous_elements {
                 if(set.contains(arr[j])) break;
                 set.add(arr[j]);
                 min = Math.min(min, arr[j]);
-                max = Math.max(max, arr[j]);
+                max = Math.max(max, arr[j]); 
                 if(max - min == j - i){
                     ans = Math.max(ans, j - i + 1);
                 }
