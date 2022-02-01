@@ -33,7 +33,7 @@ public class Q7_Largest_subarray_with_contigeous_elements {
                 if(max - min == j - i){
                     ans = Math.max(ans, j - i + 1);
                 }
-            }
+            } 
         }
 
 		return ans;
