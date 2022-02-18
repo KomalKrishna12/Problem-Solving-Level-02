@@ -15,7 +15,7 @@ public class Q12_Longest_substring_with_exactly_k_unique_characters{
 				char ch = str.charAt(i);
 				map.put(ch, map.getOrDefault(ch, 0) + 1);
 
-				if(map.size() > k){
+				if(map.size() < k) {
 					continue;
 				}
 				else if(map.size() == k){
@@ -45,7 +45,7 @@ public class Q12_Longest_substring_with_exactly_k_unique_characters{
 				else if(map.size() == k){
 					int len = i - j;
 					if(ans < len){
-						len = ans;
+						ans = len;
 					}
 					break;
 				}
