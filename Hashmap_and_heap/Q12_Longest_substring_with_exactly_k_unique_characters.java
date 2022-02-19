@@ -1,4 +1,11 @@
 import java.util.*;
+// in this question we're given a string and k, we're required to find out the length of longest substring 
+// which is having k unique characters
+// ex : 
+// str : "aabacbebebe", k = 3
+// ans : 7 
+// the longest substring is "cbebebe" in this total 3 unique characters and the length of this substring
+// is 7
 public class Q12_Longest_substring_with_exactly_k_unique_characters{
     public static int solution(String str, int k){
         int ans = 0;
