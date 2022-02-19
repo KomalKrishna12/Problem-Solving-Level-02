@@ -13,9 +13,19 @@ public class Q12_Longest_substring_with_exactly_k_unique_characters{
 		int i = -1, j = -1;
 		HashMap<Character, Integer> map = new HashMap<>();
 
+		// in this we run two while loop inside this one is for acquire and other one is for release
 		while(true){
 			boolean f1 = false, f2 = false;
 
+			// acquire
+			// mark f1 true
+			// increament i by 1
+			// now increase the freq of char ch by 1 and put it into hashmap
+			// check the size of map
+			// if less then k then continue
+			// else if map size is equal to k then calculate the len
+			// compare the length and swap
+			// else break
 			while(i < str.length() - 1){
 				f1 = true;
 				i++;
@@ -36,6 +46,15 @@ public class Q12_Longest_substring_with_exactly_k_unique_characters{
 				}
 			}
 
+			// if j is less then i 
+			// mark f2 as true
+			// increase j by 1
+			// now store char at jth index into ch variable
+			// if freq of ch is 1, then remove ch
+			// else decrease it's freq by 1
+			// now check if map size is greater then k then continue release
+			// else if size is equal to k then compare length and swap
+			// then break
 			while(j < i){
 				f2 = true;
 				j++;
