@@ -1,4 +1,6 @@
 import java.util.*;
+// this question is same like Q16 but here we're allowed to flip on zero only
+// so we're required to find out maximum consecutive ones which can ignore one zero
 public class Q15_maximum_consecutive_onex_1 {
     public static int solution(int[] arr){
         int ans = 0;
