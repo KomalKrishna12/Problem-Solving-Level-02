@@ -3,6 +3,7 @@ import java.util.*;
 // we're required to print total no of anagrams and start index of anagrams
 // anagrams means the source string is having same occurence of characters like pattern
 public class Q20_Find_all_anagrams_in_a_string {
+    // instead of this function we can direct use s.equals(p) function
     public static boolean compareMaps(HashMap<Character, Integer> s, HashMap<Character, Integer> p){
         for(char pch : p.keySet()){
             if(s.getOrDefault(pch, 0) != p.get(pch)){
@@ -36,7 +37,7 @@ public class Q20_Find_all_anagrams_in_a_string {
         while(i < s.length()){
             // compare both maps
             // if same then increase the count and store starting index
-            if(compareMaps(smap, pmap)){
+            if(smap.equals(pmap)){
                 count++;
                 indexes += (i - p.length()) + " ";
             }
@@ -55,7 +56,7 @@ public class Q20_Find_all_anagrams_in_a_string {
         }
 
         // once i comes at last index, loop will stop executing, so we've to check last time 
-        if(compareMaps(smap, pmap)){
+        if(smap.equals(pmap)){
             count++;
             indexes += (i - p.length()) + " ";
         }
