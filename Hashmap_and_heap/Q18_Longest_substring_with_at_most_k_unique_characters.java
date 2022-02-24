@@ -1,6 +1,9 @@
 import java.util.HashMap;
 import java.util.Scanner;
 
+// in this question we've given a string and k we're required to find out the length of longest 
+// substring in which atmost k unique characters are there
+// atmost k means : total k or less then k unique characters
 public class Q18_Longest_substring_with_at_most_k_unique_characters {
     public static int solution(String str, int k) {
 		int ans = 0;
@@ -11,6 +14,10 @@ public class Q18_Longest_substring_with_at_most_k_unique_characters {
         while(true){
             boolean f1 = false, f2 = false;
 
+            // acquire
+            // put characters into map till map size becomes greater than k 
+            // if less then or equal then calculate size of substring and update ans
+            // else break the loop and start release
             while(i < str.length() - 1){
                 f1 = true;
                 i++;
@@ -23,6 +30,9 @@ public class Q18_Longest_substring_with_at_most_k_unique_characters {
                 else break;
             }
 
+            // if ch frequenecy is 1 then remove that else decrese its frequenecy by 1
+            // now check the size of map if size is greater than k then continue release
+            // else calculate the length and update ans
             while(j < i){
                 f2 = true;
                 j++;
