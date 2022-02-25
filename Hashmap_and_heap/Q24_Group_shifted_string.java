@@ -1,6 +1,17 @@
 import java.util.*;
+// in this question, we've given an array of strings
+// we're required to group them according to their ascii value 
 public class Q24_Group_shifted_string {
 
+    // to key is the gap between the ascii value
+    // str : acd
+    // gap between a and c : 3 - 1 = 2
+    // gap between d and c : 4 - 3 = 1
+    // key will be : 2#1#. # denotes space and . denotes end
+    // ex2 str : yab
+    // a - y = 1 - 25 = -24 it is negetive so add 26 so diff becomes 2
+    // b - 1 = 2 - 1 = 1
+    // key = 2#1#.
     public static String getKey(String str){
         String key = "";
 
@@ -17,10 +28,17 @@ public class Q24_Group_shifted_string {
         return key;
     }
 
+    // create a hashmap of string(key which we created in getKey()) and list(it'll add all strings of
+    // same key)
     public static ArrayList<ArrayList<String>> groupShiftedStrings(String[] strs) {
 		ArrayList<ArrayList<String>> ans = new ArrayList<>();
 
         HashMap<String, ArrayList<String>> map = new HashMap<>();
+        // create loop for strs[]
+        // firstly create key
+        // now check map
+        // if key exists then get list for that key and add the str into list
+        // else create a list, add str into list and put into map
         for(String str : strs){
             String key = getKey(str);
             if(map.containsKey(key) == false){
@@ -34,6 +52,8 @@ public class Q24_Group_shifted_string {
             }
         }
 
+        // now we want to store all list into list of list so use values() function to fetch all list
+        // add it into ans list
         for(ArrayList<String> list : map.values()){
             ans.add(list);
         }
