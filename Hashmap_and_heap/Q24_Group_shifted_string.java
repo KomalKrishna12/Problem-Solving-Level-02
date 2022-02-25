@@ -1,9 +1,44 @@
 import java.util.*;
 public class Q24_Group_shifted_string {
-    public static ArrayList<ArrayList<String>> groupShiftedStrings(String[] strs) {
-		// write your code here
 
-		return null;
+    public static String getKey(String str){
+        String key = "";
+
+        for(int i = 1; i < str.length(); i++){
+            char curr = str.charAt(i);
+            char prev = str.charAt(i - 1);
+            int diff = curr - prev;
+            if(diff < 0) diff += 26;
+            key += diff + "#";
+        }
+
+        key += ".";
+
+        return key;
+    }
+
+    public static ArrayList<ArrayList<String>> groupShiftedStrings(String[] strs) {
+		ArrayList<ArrayList<String>> ans = new ArrayList<>();
+
+        HashMap<String, ArrayList<String>> map = new HashMap<>();
+        for(String str : strs){
+            String key = getKey(str);
+            if(map.containsKey(key) == false){
+                ArrayList<String> list = new ArrayList<>();
+                list.add(str);
+                map.put(key, list);
+            }
+            else{
+                ArrayList<String> list = map.get(key);
+                list.add(str);
+            }
+        }
+
+        for(ArrayList<String> list : map.values()){
+            ans.add(list);
+        }
+
+		return ans;
 	}
 
 	public static void main(String[] args) {
