@@ -1,4 +1,10 @@
 import java.util.*;
+// we have given an array of size even
+// we are required to check that array elements are in double pair or not
+// algo
+// step1 : create hashmap and add all element with it's freq
+// step2 : sort the array using absolute value (in negetive value sort by ignoring -ve sign)
+// step3 : traverse the array and check their pair
 public class Q37_Double_pair_array {
     public static boolean solution(int[] arr) {
         HashMap<Integer, Integer> map = new HashMap<>();
