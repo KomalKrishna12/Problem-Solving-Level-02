@@ -10,6 +10,8 @@ public class Q37_Double_pair_array {
         HashMap<Integer, Integer> map = new HashMap<>();
         for(int val : arr) map.put(val, map.getOrDefault(val, 0) + 1);
 
+        // it is dificult to sort the int type array using absolute function so we create an array
+        // of type Integer and using lamda function we can sort the array
         Integer[] ar = new Integer[arr.length];
         for(int i = 0; i < arr.length; i++) ar[i] = arr[i];
 
@@ -17,6 +19,12 @@ public class Q37_Double_pair_array {
             return Math.abs(a) - Math.abs(b);
         });
 
+        // now traverse through sorted array
+        // if val's freq is 0 that means it's already used in pair so continue
+        // check 2*val's if its freq is 0 that means it's already use so return false bcoz its not pairing 
+        // if it is not avaialble in the array then also return false
+        // for checking these two we can use getOrDefault()
+        // now decrese val's freq and 2*val's freq by 1
         for(Integer val : ar){
             if(map.get(val) == 0) continue;
             if(map.getOrDefault(2*val, 0) == 0) return false;
