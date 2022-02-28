@@ -1,8 +1,28 @@
 import java.util.HashMap;
 import java.util.Scanner;
-
+// in this ques we have given an array 
+// we are required to find out the smallest subarray who is containing all occurence most frequently used elments
+// arr : [1,2,2,3,1]
+// in this array 1 and 2 are the elements with high freq 2
+// we have to find out the smallest subarray in which all the freq can be added
+// for element 1 : [1,2,2,3,1] len : 5
+// for element 2 : [2,2] len : 2
+// so the subarray [2,2] will be our final ans
+// display the element, it's starting index and end index
 public class Q39_Smallest_subarray_with_highest_frequency_of_elements {
     public static void solution(int[] arr) {
+        // create two hashmap, fremap and indexmap
+        // in fremap add all element with its freq
+        // in idxmap add all element with its starting index so it'll help in calculating length of array
+        // create 4 variable hf, si, ei and len
+        // start traversing array arr
+        // check that arr[i] is in fmap or not
+        // if not then add it into fmap with freq 1 and in imap with inde value i
+        // if it is available then increase its freq by 1
+        // now compare its freq by hf
+        // if greater than hf then update all
+        // if it is equal then check the len
+        // if it's len is small then update all 
         HashMap<Integer, Integer> freqMap = new HashMap<>();
         HashMap<Integer, Integer> startingIndexMap = new HashMap<>();
 
