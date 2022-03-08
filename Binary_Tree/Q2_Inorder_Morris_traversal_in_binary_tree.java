@@ -29,7 +29,8 @@ public class Q2_Inorder_Morris_traversal_in_binary_tree {
         // create leftnode which store curr.left
         // if leftnode is null then print curr val and move curr as curr.right
         // else calculate right most node
-        // if right most node.right is null then create a thred connect its right to curr and move curr to left
+        // if right most node.right is null then create a thred connect its right to curr and move 
+        // curr to left
         // else cutt the thred make right as null print curr.val and move curr to right
         ArrayList<Integer> list = new ArrayList<>();
         TreeNode curr = node;
