@@ -19,7 +19,7 @@ public class Q7_Construct_Binary_Tree_From_Preorder_and_Inorder_Traversal {
     // isi : inorder start index.
     // iei : inorder end index.    
     // in preorder root will be our first node
-    // in inorder root will be there is mid so in inorder before mid every node is left node
+    // in inorder root will be there in mid so in inorder before mid every node is left node
     // create a var idx initialize it with isi
     // now increase idx by 1 till inorder[idx] == preorder[psi]
     // basically here we want to find our root in inorder so we can calculate total no of left node
