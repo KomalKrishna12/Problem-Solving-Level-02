@@ -26,7 +26,7 @@ public class Q34_Path_sum_I {
                 return true;
         }
         return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum - root.val);
-    }
+    }    
 
     // input_Section=================================================
 
