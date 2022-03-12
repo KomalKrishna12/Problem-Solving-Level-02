@@ -14,6 +14,7 @@ public class Q1_Abbreviations_I{
             else{
                 System.out.println(asf + count);
             }
+            return;
         }
 
         // if we are taking the idx's character
