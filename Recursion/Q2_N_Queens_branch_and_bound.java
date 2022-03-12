@@ -1,5 +1,14 @@
 import java.util.*;
-
+// this is the same problem which we did in level1 recursion backtracking
+// in this we use Banch and bound algo to solve this
+// we creaet theree array one for columns(cols[]), one for normal diagonals(ndia[]) and other for
+// reverse diagona(rdia[])
+// basically a queen can kill 8 positions, the whole col in which queen is present, the whole row 
+// in which queen is present and all normal diagonal as well as reverse diagonals
+// so whenever we put our queen in a particular row & col make their columns true
+// suppose row is 1 col is 2 so make cols[2] true
+// for diagonal fill array with row + col so marl 1 + 2 as true
+// for reverse fill array with row - col + board length - 1 as true
 public class Q2_N_Queens_branch_and_bound {
     public static void main(String[] args) throws Exception {
         Scanner scn = new Scanner(System.in);
