@@ -1,4 +1,8 @@
 import java.util.*;
+// we have given n words and farr for few charcaters
+// score array for the score of all alphabets
+// we are required to find out the max score we can get by creating its subset
+// if n is 4 then their is 2^4 = 16 subsets possible
 public class Q3_Max_score {
     public static int solution(String[] words, int[] farr, int[] score, int idx) {
         if(idx == words.length) return 0;
