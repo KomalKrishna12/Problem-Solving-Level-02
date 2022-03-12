@@ -1,29 +1,48 @@
 import java.util.*;
 public class Q6_Gold_mine_2 {
-    static int max = 0;
-	public static void getMaxGold(int[][] arr){
-        boolean[][] visited = new boolean[arr.length][arr[0].length];
-		for(int i = 0; i < arr.length; i++){
-            for(int j = 0; j < arr[i].length; j++){
-                ArrayList<Integer> bag = new ArrayList<>();
-                travelAndCollect(arr, i, j, visited, bag);
-                int sum = 0;
-                for(int val : bag) sum += val;
-                if(sum > max) max = sum;
+    public static int getMaximumGold(int[][] grid) {
+        int max = 0;
+        
+        for(int i = 0; i < grid.length; i++){
+            
+            for(int j = 0; j < grid[i].length; j++){
+                
+                if(grid[i][j] != 0){
+                    
+                    int val = helper(grid, i, j);
+                    max = Math.max(max, val);
+                    
+                }
+                
             }
+            
         }
-		
-	}
-    public static void travelAndCollect(int[][] arr, int i, int j,
-                                        boolean[][] visited, ArrayList<Integer> ans){
-        if(i < 0 || j < 0 || i >= arr.length || j >= arr[0].length || arr[i][j] == 0 ||
-           visited[i][j] == true) return;                                    
-        visited[i][j] = true;
-        ans.add(arr[i][j]);
-        travelAndCollect(arr, i-1, j, visited, ans);
-        travelAndCollect(arr, i, j-1, visited, ans);
-        travelAndCollect(arr, i, j+1, visited, ans);
-        travelAndCollect(arr, i+1, j, visited, ans);                                    
+        
+        return max;
+    }
+    
+    public static int helper(int[][] grid, int i, int j){
+        
+        if(i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] == 0 ||
+          grid[i][j] < 0) return 0;
+        
+        int val = grid[i][j];
+        
+        grid[i][j] = -val;
+        
+        int t = helper(grid, i-1, j);
+        
+        int r = helper(grid, i, j+1);
+        
+        int l = helper(grid, i, j-1);
+        
+        int d = helper(grid, i+1, j);
+        
+        int ans = Math.max(t, Math.max(r, Math.max(l, d)));
+        
+        grid[i][j] = val;
+        
+        return ans + val;
     }
 
 	public static void main(String[] args) {
@@ -37,7 +56,6 @@ public class Q6_Gold_mine_2 {
 			}
 		}
         scn.close();
-		getMaxGold(arr);
-		System.out.println(max);
+		System.out.println(getMaximumGold(arr));
 	}
 }
