@@ -2,8 +2,10 @@ import java.util.*;
 
 public class Q4_Josephus_problem {
     public static int solution(int n, int k) {
-        // write your code here
-        return 0;
+        if(n == 1) return 0;
+        int x = solution(n - 1, k);
+        int y = (x + k) % n;
+        return y;
     }
 
     public static void main(String[] args) {
