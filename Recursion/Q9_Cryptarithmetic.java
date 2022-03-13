@@ -1,4 +1,7 @@
 import java.util.*;
+// we have given three strings which can make a unique string by taking all characters from all three
+// that cannot exxceed to 10 characters 
+// assin them digits from 0 to 9 so that sum of s1 and s2 equal to s3
 public class Q9_Cryptarithmetic {
     public static void main(String[] args) {
         Scanner scn = new Scanner(System.in);
@@ -35,6 +38,11 @@ public class Q9_Cryptarithmetic {
       }
     
     
+      // we have given a string str and we have to return a number which can be generated using map
+      // create a string num
+      // now get char ch from str using charAt()
+      // now add that ch into num
+      // at end return the num by changing it into integer
       public static int getNum(HashMap<Character, Integer> charIntMap, String str){
         String num = "";
         
@@ -50,13 +58,18 @@ public class Q9_Cryptarithmetic {
     public static void solution(String unique, int idx,
                                 HashMap<Character, Integer> charIntMap,
                                 boolean[] usedNumbers, String s1, String s2, String s3) {
+
+      // base case
+      // get all numbers using getNum()
+      // now add num1 and num2 if their sum is equal to num3 then 
+      // print their respective digits in ascending order                              
       if(idx == unique.length()){
           int num1 = getNum(charIntMap, s1);
           int num2 = getNum(charIntMap, s2);
           int num3 = getNum(charIntMap, s3);
           if(num1 + num2 == num3){
               for(int i = 0; i < 26; i++){
-                  char ch = (char)('a' + i);
+                  char ch = (char)('a' + i); // 'a' = 97, 'a' + 0 = a, 'a' + 1 = b
                   if(charIntMap.containsKey(ch)){
                       System.out.print(ch + "-" + charIntMap.get(ch) + " ");
                   }
@@ -68,6 +81,7 @@ public class Q9_Cryptarithmetic {
                            
       char chh = unique.charAt(idx);
       for(int num = 0; num <= 9; num++){
+          // we can assign num between 0 to 9, before assign check if that num is already used or not
           if(usedNumbers[num] == false){
                charIntMap.put(chh, num);
                usedNumbers[num] = true;
