@@ -1,4 +1,7 @@
 import java.util.*;
+// we have given a sudoku like 2d array we are required to fill it
+// in sudoku we have to check in the row and column and the submatrix then we set value from
+// 1 to 9 
 public class Q7_solve_sudoku {
     public static void display(int[][] board){
         for(int i = 0; i < board.length; i++){
@@ -55,6 +58,7 @@ public class Q7_solve_sudoku {
             nj = 0;
         }
         else{
+            ni = i;
             nj = j + 1;
         }
 
