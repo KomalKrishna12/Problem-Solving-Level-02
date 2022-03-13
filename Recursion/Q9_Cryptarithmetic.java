@@ -35,9 +35,49 @@ public class Q9_Cryptarithmetic {
       }
     
     
-      public static void solution(String unique, int idx,
-                                  HashMap<Character, Integer> charIntMap, boolean[] usedNumbers,
-                                  String s1, String s2, String s3) {
-        // write your code here
+      public static int getNum(HashMap<Character, Integer> charIntMap, String str){
+        String num = "";
+        
+        for(int i = 0; i < str.length(); i++){
+            char ch = str.charAt(i);
+            num += charIntMap.get(ch);
+        }
+        
+        return Integer.parseInt(num);
+    }
+  
+  
+    public static void solution(String unique, int idx,
+                                HashMap<Character, Integer> charIntMap,
+                                boolean[] usedNumbers, String s1, String s2, String s3) {
+      if(idx == unique.length()){
+          int num1 = getNum(charIntMap, s1);
+          int num2 = getNum(charIntMap, s2);
+          int num3 = getNum(charIntMap, s3);
+          if(num1 + num2 == num3){
+              for(int i = 0; i < 26; i++){
+                  char ch = (char)('a' + i);
+                  if(charIntMap.containsKey(ch)){
+                      System.out.print(ch + "-" + charIntMap.get(ch) + " ");
+                  }
+              }
+              System.out.println();
+          }
+          return;
+      }                     
+                           
+      char chh = unique.charAt(idx);
+      for(int num = 0; num <= 9; num++){
+          if(usedNumbers[num] == false){
+               charIntMap.put(chh, num);
+               usedNumbers[num] = true;
+               
+               solution(unique, idx + 1, charIntMap, usedNumbers, s1, s2, s3);
+               
+               charIntMap.put(chh, -1);
+               usedNumbers[num] = false;
+          }
       }
+                                   
+    }
 }
