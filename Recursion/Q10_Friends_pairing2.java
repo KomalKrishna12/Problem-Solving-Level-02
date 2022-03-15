@@ -9,7 +9,7 @@ public class Q10_Friends_pairing2 {
   public static void main(String[] args) throws Exception {
     Scanner sc = new Scanner(System.in);
     int n = sc.nextInt();
-    sc.close();g
+    sc.close();
     boolean[] used = new boolean[n + 1];
     solution(1, n, used, "");
   }
