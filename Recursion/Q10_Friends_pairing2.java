@@ -1,5 +1,11 @@
 import java.util.*;
-
+// we have given n number we are required to find out all possible ways from 1 to n for which 
+// then can make a single pair or doule pair
+// like n = 3
+// ans : (1) (2) (3) // every element can be single
+//       (1) (23)    // one is single and rest is pair
+//       (12) (3)    // now 1 will pair with other ans the rest number will make single pari
+//       (13) (2)
 public class Q10_Friends_pairing2 {
     static int counter = 1;
 
