@@ -1,5 +1,5 @@
 import java.util.*;
-public class Q12_All_pallindromic_permutation {
+public class Q12_All_pallindromic_permutations {
     public static void generatepw(int cs, int ts, HashMap<Character, Integer> fmap, Character oddc, String asf) {
 		
 	}
