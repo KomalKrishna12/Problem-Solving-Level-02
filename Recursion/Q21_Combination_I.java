@@ -4,8 +4,10 @@ import java.io.*;
 // if items are identical that means we are required to find out combination
 // 4^2 = 4C0 + 4C1 + 4C2 + 4C3 + 4C4    
 // for placing 2 identical items into 4 boxes ans will be 4C2 = 6 
+
 public class Q21_Combination_I{
     public static void combinations(int cb, int tb, int ssf, int ts, String asf){
+        
         // base case
         // when cb(current box) > tb(total box) that is our base condition
         // so check ssf and ts if both are equal then print the asf
