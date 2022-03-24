@@ -24,7 +24,7 @@ public class Q35_nQueens_combinations_2d_as_1d_queen_chooses {
         }
 
         //check reverse diagonal so row will decrease and col will increase
-        for(int i = row, j = col; i >= 0 && j <= chess.length; i--, j++){
+        for(int i = row, j = col; i >= 0 && j < chess.length; i--, j++){
             if(chess[i][j]) 
             return false;
         }
