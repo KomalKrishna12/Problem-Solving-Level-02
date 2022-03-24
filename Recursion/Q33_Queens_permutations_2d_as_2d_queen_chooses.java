@@ -1,5 +1,7 @@
 import java.io.*;
-
+// in this we are required to print all permutations so now restricted on arrangements 
+// bcoz queens are diff
+// so start row col from 0,0 and check if it is 0 then insert queen and call
 public class Q33_Queens_permutations_2d_as_2d_queen_chooses {
     public static void queensPermutations(int qpsf, int tq, int[][] chess){
         if(qpsf == tq){
