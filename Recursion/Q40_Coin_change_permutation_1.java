@@ -1,9 +1,23 @@
 import java.io.*;
-
+// we have given n coins we are required to find all arragements so we can collect tamt
+// so create a for loop from 0 to coins.length and check if that is false then mark it true and
+// call for next
 public class Q40_Coin_change_permutation_1 {
     public static void coinChange(int[] coins, int amtsf, int tamt, String asf, boolean[] used) {
+        if(amtsf > tamt) return;
 
-        
+        if(amtsf == tamt){
+            System.out.println(asf + ".");
+            return;
+        }
+
+        for(int i = 0; i < coins.length; i++){
+            if(used[i] == false){
+                used[i] = true;
+                coinChange(coins, amtsf + coins[i], tamt, asf + coins[i] + "-", used);
+                used[i] = false;
+            }
+        }
 
     }
 
