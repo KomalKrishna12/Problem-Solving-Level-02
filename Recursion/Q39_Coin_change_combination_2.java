@@ -9,6 +9,10 @@ import java.io.*;
 // we can use this
 public class Q39_Coin_change_combination_2 {
     public static void coinChange(int i, int[] coins, int amtsf, int tamt, String asf) {
+        if(amtsf == tamt){
+            System.out.println(asf + ".");
+            return;
+        }
         if(i == coins.length){
             if(amtsf == tamt) System.out.println(asf + ".");
             return;
