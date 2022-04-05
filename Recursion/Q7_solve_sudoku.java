@@ -63,7 +63,7 @@ public class Q7_solve_sudoku {
         }
 
         if(board[i][j] != 0) solveSudoku(board, ni, nj);
-
+ 
         else{
 
             for(int pos = 1; pos <= 9; pos++){ // pos : possible values
