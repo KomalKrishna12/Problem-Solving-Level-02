@@ -1,5 +1,18 @@
 import java.io.*;
 import java.util.*;
+// we have given a 2D matrix which contains 0 and 1
+// we have to store the nearest distance of each element from 0
+// suppose matrix : {{0, 0, 0}, {0, 1, 0}, {1, 1, 1}}
+// in first row every element is 0 so it's distance from 0 is 0 only
+// in (1,1) their is distance 1 from 0 and so one
+// using queue we solve this
+// create a pair class which will store row and col indexed of each element
+// now create a queue of pair class
+// now traverse in matrix if element is 0 then add it's indexes
+// if element is 1 mark it as negetive so we can identify
+// now start traversing in queue 
+// remove first element
+// now check in all four direction and add 1 into previous value 
 public class Q4_Zero_One_Matrix {
     private static class Pair {
         int x;
