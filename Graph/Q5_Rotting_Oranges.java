@@ -47,7 +47,7 @@ public class Q5_Rotting_Oranges {
     // store size in size variable, inside create another while loop and remove and check pair till size 
     // become 0, using size we check level wise rotten oranges
     // now check all four directions
-    // if any fresh orange(1) is their reduce fresh count add it's index into queue and mark it visited
+    // if any fresh orange(1) is their reduce fresh count add it's index into queue and mark it visited 
     public static int orangesRotting(int[][] grid) {
         int fresh = 0;
         ArrayDeque<Pair> queue = new ArrayDeque<>();
