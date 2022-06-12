@@ -75,6 +75,6 @@ public class Q3_Number_of_distinct_island {
           }
         }
 
-        return islands.size();
+        return islands.size(); // total distinct islands store in hashset so return it's size
       }
 }
