@@ -15,7 +15,7 @@ public class Q6_As_Far_From_Land_As_Possible {
         }
 
         System.out.println(maxDistance(arr));
-
+ 
     }
 
     public static int maxDistance(int[][] grid) {
