@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.ArrayDeque;
+
 // we have to find out farest land from water
 public class Q6_As_Far_From_Land_As_Possible {
     public static void main(String[] args) throws NumberFormatException, IOException {
@@ -38,6 +39,9 @@ public class Q6_As_Far_From_Land_As_Possible {
             }
         }
 
+        if (queue.size() == 0 || queue.size() == grid.length * grid[0].length)
+            return -1;
+
         int level = -1;
 
         int[][] dir = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 } };
@@ -56,7 +60,7 @@ public class Q6_As_Far_From_Land_As_Possible {
                         continue;
 
                     queue.add(new Pair(idash, jdash));
-                    grid[idash][jdash] = 1;    
+                    grid[idash][jdash] = 1;
                 }
             }
         }
