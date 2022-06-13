@@ -1,6 +1,13 @@
 import java.io.*;
 import java.util.ArrayDeque;
-
+// we have given an array which consisit of 0 and 1
+// 0 means water
+// 1 means land
+// we have to make bridge between islands
+// so first we need to findout any 1's component
+// so using dfs we'll 1's component and add them into queue and mark them visited
+// now using bfs we'll start removing from queue and keep storing levels
+// once we find any 1 then return level
 public class Q7_Shortest_Bridge {
     public static void main(String[] args) throws NumberFormatException, IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
