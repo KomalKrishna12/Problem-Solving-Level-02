@@ -51,7 +51,7 @@ public class Q7_Shortest_Bridge {
             }
         }
 
-        int level = 0;
+        int level = 0; 
         while(queue.size() > 0){
             int size = queue.size();
             while(size-- > 0){
