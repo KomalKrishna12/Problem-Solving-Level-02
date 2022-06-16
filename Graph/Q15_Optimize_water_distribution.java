@@ -63,7 +63,7 @@ public class Q15_Optimize_water_distribution {
                 if(visited[nbr.v] == false){
                     pq.add(nbr);
                 }
-            }
+            } 
         }
         
         return ans;
