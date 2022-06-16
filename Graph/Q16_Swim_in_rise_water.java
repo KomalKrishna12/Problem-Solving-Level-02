@@ -1,4 +1,7 @@
 import java.util.*;
+// applying Dijekstra Algorithm
+// in priority queue store row, col and max so far
+// while adding it's 4 adjacent in msf store max of current grid[i][j] and removed msf
 public class Q16_Swim_in_rise_water {
     public static void main(String[] args) {
         int[][] grid = {{0,2},{1,3}};
