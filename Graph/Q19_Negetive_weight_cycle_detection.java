@@ -12,7 +12,7 @@ public class Q19_Negetive_weight_cycle_detection {
         for (int i = 0; i < m; i++) {
           st = br.readLine().split(" ");
           arr[i][0] = Integer.parseInt(st[0]);
-          arr[i][1] = Integer.parseInt(st[1]);
+          arr[i][1] = Integer.parseInt(st[1]);  
           arr[i][2] = Integer.parseInt(st[2]);
         }
         
