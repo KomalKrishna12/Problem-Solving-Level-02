@@ -59,7 +59,7 @@ public class Q21_Mother_Vertex {
   }
   public static void dfs(int src, ArrayList<ArrayList<Integer>> adj, boolean[] vis){
       vis[src] = true;
-      count++;
+      count++; 
       ArrayList<Integer> nbrs = adj.get(src);
       for(int nbr : nbrs){
           if(vis[nbr] == false){
