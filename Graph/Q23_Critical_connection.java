@@ -1,5 +1,11 @@
 import java.io.*;
 import java.util.*;
+// this is similar ques like articular point
+// in articulation point we remove vertex and their connected edges
+// here we remove edge only
+// so whole concept is same
+// no need for count or no concept needed like actual src
+// we simple use low[nbr] > disc[src]) if this is true then it is critical connection or bridge
 public class Q23_Critical_connection {
     static int[] parent, disc, low;
   static boolean[] vis;
