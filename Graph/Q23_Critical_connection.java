@@ -56,7 +56,7 @@ public class Q23_Critical_connection {
                   list.add(v);
                   ans.add(list);
               }
-          }
+          } 
       }
   }
 
