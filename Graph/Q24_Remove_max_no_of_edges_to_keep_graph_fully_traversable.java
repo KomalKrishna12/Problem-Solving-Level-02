@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.Arrays;
 // we have given a graph edges
 // in this edges[0] represent types 
 // we have two ppl Alice and Bob 
@@ -31,12 +32,16 @@ public class Q24_Remove_max_no_of_edges_to_keep_graph_fully_traversable {
       }
     
       public int maxNumEdgesToRemove(int n, int[][] edges) {
+        // firstly sort the array make type 3 into the front bcoz type 3 makes pair for both Alice and Bob
+        Arrays.sort(edges, (a, b) -> Integer.compare(b[0], a[0]));
         // veretx is 1 based so we created array of size n+1
         int[] parentA = new int[n+1];
         int[] parentB = new int[n+1];
         int[] rankA = new int[n+1];
         int[] rankB = new int[n+1];
-        int mergeA = 1, mergeB = 1; // intialize with 1 bcoz first time we pair up two vertex 
+        int mergeA = 1;
+        int mergeB = 1; 
+        // intialize with 1 bcoz first time we pair up two vertex 
         // if we start adding 2 then it'll add 2 for all
         int remove = 0;
 
@@ -49,23 +54,23 @@ public class Q24_Remove_max_no_of_edges_to_keep_graph_fully_traversable {
         }
 
         for(int[] edge : edges){
-            int type = edge[0];
-            if(type == 3){
+            
+            if(edge[0] == 3){
                 // means edge is for both Alice and Bob
                 boolean mergeAflag = union(edge[1], edge[2], parentA, rankA);
                 boolean mergeBflag = union(edge[1], edge[2], parentB, rankB);
 
-                if(mergeAflag) mergeA++;
+                if(mergeAflag == true) mergeA++;
 
-                if(mergeBflag) mergeB++;
+                if(mergeBflag == true) mergeB++;
 
                 if(mergeAflag == false && mergeBflag == false) remove++;
             }
-            else if(type == 1){
+            else if(edge[0] == 1){
                 // means edge is for Alice only
                 boolean mergeAflag = union(edge[1], edge[2], parentA, rankA);
 
-                if(mergeAflag) mergeA++;
+                if(mergeAflag == true) mergeA++;
 
                 else remove++;
             }
@@ -73,14 +78,15 @@ public class Q24_Remove_max_no_of_edges_to_keep_graph_fully_traversable {
                 // means edge is for Bob only
                 boolean mergeBflag = union(edge[1], edge[2], parentB, rankB);
 
-                if(mergeBflag) mergeB++;
+                if(mergeBflag == true) mergeB++;
 
                 else remove++;
             }
         }
 
         if(mergeA != n || mergeB != n) return -1;
-        else return remove;
+
+        return remove;
 
       }
 
