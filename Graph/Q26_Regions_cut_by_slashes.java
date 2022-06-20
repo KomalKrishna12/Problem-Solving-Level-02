@@ -1,3 +1,7 @@
+// here we work on dots
+// if array size is n then dot will be n+1
+// if char is "/" then (i, j+1) & (i+1, j)
+// if "\\" then (i, j) & (i+1, j+1)
 public class Q26_Regions_cut_by_slashes {
     public static void main(String[] args) {
         String[] grid = {" /","/ "};
@@ -72,6 +76,8 @@ public class Q26_Regions_cut_by_slashes {
             }
         }
         else{
+            // if leaders are same that means these two vertex has already a path
+            // and we are ading another path so it makes a cycle so increase the count
             count++;
         }
     }
