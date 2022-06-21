@@ -79,6 +79,6 @@ public class Q26_Regions_cut_by_slashes {
             // if leaders are same that means these two vertex has already a path
             // and we are ading another path so it makes a cycle so increase the count
             count++;
-        }
+        } 
     }
 }
