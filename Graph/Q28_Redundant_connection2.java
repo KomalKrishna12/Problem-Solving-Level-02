@@ -102,7 +102,7 @@ public class Q28_Redundant_connection2{
           return false;
         }
         else {
-          return true;
+          return true; 
         }
       }
 }
