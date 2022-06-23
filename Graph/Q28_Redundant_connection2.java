@@ -20,8 +20,8 @@ public class Q28_Redundant_connection2{
         System.out.println(ans[0] + " " + ans[1]);
       }
     
-      static int[] par;
-      static int[] rank;
+      static int[] par; // used in find function
+      static int[] rank; // used in union function to merge two verteces 
     
       public static int[] findRedundantDirectedConnection(int[][] edges) {
         int n = edges.length; // 1 based indexing
