@@ -89,7 +89,7 @@ public class Q28_Redundant_connection2{
       }
     
       public static boolean union(int x, int y) {
-        int lx = find(x);
+        int lx = find(x);  
         int ly = find(y);
     
         if (lx != ly) {
