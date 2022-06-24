@@ -1,4 +1,12 @@
 import java.io.*;
+// we have given array of equalit string like a == b & v != r
+// so we'll use dsu to check this
+// in the 1th position check operator, if operator is = then merge the two verteces
+// do forr all strings
+// again run a for loop and check for ! operator
+// find leader of both
+// they are not equal (!=) lx and ly so (their leaders) not have to be equal
+// if they are equal then the equation is not feasible so return false
 public class Q29_Satisfiability_of_euality_equation {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
