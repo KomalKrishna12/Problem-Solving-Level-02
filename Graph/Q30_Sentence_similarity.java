@@ -1,9 +1,12 @@
 import java.io.*;
 import java.util.HashMap;
+// this is similar ques like q29 we have to make dsu or pair array and then we start checking
+// for sentence1 and sentence2
+// here instead of int array we use hashmap bcoz we want to store string as parent and rank as string count
 public class Q30_Sentence_similarity {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-         int n = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
     
         String[] sentence1 = br.readLine().split(" ");
         String[] sentence2 = br.readLine().split(" ");
@@ -16,9 +19,13 @@ public class Q30_Sentence_similarity {
         }
     
         System.out.println(areSentencesSimilarTwo(sentence1, sentence2, pairs));
+        System.out.println(n);
     
       }
 
+      // create HashMap for parent and rank
+      // by default we'were storing par[i] = i and rank as 1 but here we will store it in find
+      // function
       static HashMap<String, String> par;
       static HashMap<String, Integer> rank;
     
@@ -29,13 +36,15 @@ public class Q30_Sentence_similarity {
         if(Sentence1.length != Sentence2.length) return false;
 
         for(String[] pair : pairs){
-            union(pair[0], pair[1]);
+            union(pair[0], pair[1]); // merging all pairs, dsu is done here
         }
 
         for(int i = 0; i < Sentence1.length; i++){
             String word1 = Sentence1[i];
             String word2 = Sentence2[i];
 
+            // now compare both words, if they're not equal according to dsu then return false
+            // else return true at end 
             if(word1.equals(word2) == false && find(word1).equals(find(word2)) == false) 
             return false;
         }
