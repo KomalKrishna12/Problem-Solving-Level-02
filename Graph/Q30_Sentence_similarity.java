@@ -30,7 +30,7 @@ public class Q30_Sentence_similarity {
       static HashMap<String, Integer> rank;
     
       public static boolean areSentencesSimilarTwo(String[] Sentence1, String[] Sentence2, String[][] pairs) {
-        par = new HashMap<>();
+        par = new HashMap<>(); 
         rank = new HashMap<>();
 
         if(Sentence1.length != Sentence2.length) return false;
