@@ -39,7 +39,7 @@ public class Q30_Sentence_similarity {
             union(pair[0], pair[1]); // merging all pairs, dsu is done here
         }
 
-        for(int i = 0; i < Sentence1.length; i++){
+        for(int i = 0; i < Sentence1.length; i++){ 
             String word1 = Sentence1[i];
             String word2 = Sentence2[i];
 
