@@ -16,7 +16,7 @@ public class Q31_Number_of_provinces {
                 graph[i][j] = 0;
                 if(graph[j][j] == 1){
                     dfs(graph, j);
-                }
+                } 
             }
         }
     }
