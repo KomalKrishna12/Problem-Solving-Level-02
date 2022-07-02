@@ -26,7 +26,7 @@ public class Q31_Number_of_provinces {
         System.out.println(findCircleNum(isConnected));
     }
 }  
-// git add .
+// git add . 
 // git commit -m "."
 // git push
  
